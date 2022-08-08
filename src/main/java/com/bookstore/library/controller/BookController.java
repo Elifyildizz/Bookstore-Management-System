@@ -42,5 +42,4 @@ public class BookController {
     public String deleteBook(@PathVariable(value = "id") long id) {
         return bookService.deleteBookById(id);
     }
-
 }
