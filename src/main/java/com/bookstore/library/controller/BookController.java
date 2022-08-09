@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin
+// enables to access from webstorm
 @RestController
 @RequestMapping(path = "api/v1/books")
 //instead of going to localhost:8080
