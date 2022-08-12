@@ -12,7 +12,6 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
 
-    @Autowired
     public BookServiceImpl(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
@@ -23,7 +22,7 @@ public class BookServiceImpl implements BookService {
         List<Book> newList = bookRepository.findAll();
         for (Book book1 : newList) {
             if (book.getBookName().equals(book1.getBookName())) {
-                throw new RuntimeException("This book already in library");
+                throw new RuntimeException("This book is already in library");
             }
         }
         this.bookRepository.save(book);
@@ -45,7 +44,7 @@ public class BookServiceImpl implements BookService {
     @Override
     public Book getBookById(long id) {
         Optional<Book> optionalBook = bookRepository.findById(id);
-        Book book = null;
+        Book book;
         if (optionalBook.isPresent()) {
             book = optionalBook.get();
         } else {

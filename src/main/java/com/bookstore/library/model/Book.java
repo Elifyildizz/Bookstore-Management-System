@@ -8,9 +8,7 @@ import java.util.Objects;
 public class Book {
 
     @Id
-    //primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    //autoincrement
     private long id;
 
     @Column(name = "book_name", nullable = false, length = 100)
